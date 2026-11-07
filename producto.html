@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Producto - TechVibe</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="store-container">
+    <header class="navbar">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <a href="index.html" class="logo-text">TechVibe</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Catálogo</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="carrito.html" class="btn-cart">
+          🛒 Carrito <span id="cart-counter" class="cart-badge">0</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="detail-view-container">
+      <a href="index.html" class="btn-secondary" style="display: inline-block; margin-bottom: 24px;">&larr; Volver a la Tienda</a>
+
+      <div id="loading" class="state-feedback">Cargando detalles del gadget...</div>
+      <div id="error" class="state-feedback state-error-msg" style="display: none;"></div>
+
+      <article id="product-detail" class="detail-layout" style="display: none;">
+        <div class="detail-image-box">
+          <img id="detail-img" src="" alt="">
+        </div>
+        <div class="detail-info">
+          <div>
+            <span id="detail-tag" class="badge"></span>
+            <span id="detail-category" style="color: var(--text-muted); font-size: 0.9rem; margin-left: 8px;"></span>
+          </div>
+          <h1 id="detail-title" style="font-size: 2rem;"></h1>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span id="detail-price" style="font-size: 1.8rem; font-weight: 700; color: var(--accent-color);"></span>
+            <span id="detail-rating" style="color: #fbbf24; font-weight: 600;"></span>
+          </div>
+          <p id="detail-desc" style="color: var(--text-muted); line-height: 1.6;"></p>
+
+          <div style="font-size: 0.9rem;">
+            <strong>Disponibilidad: </strong><span id="detail-stock" style="color: #34d399;"></span>
+          </div>
+
+          <div>
+            <h3 style="font-size: 1rem; margin-bottom: 8px;">Especificaciones Técnicas:</h3>
+            <ul id="detail-specs" class="specs-list"></ul>
+          </div>
+
+          <div style="margin-top: 16px; display: flex; gap: 12px; align-items: center;">
+            <button id="btn-add-cart" type="button" class="btn-primary" style="flex: 1;">Agregar al Carrito 🛒</button>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">⚡</span>
+          <span class="footer-logo-text">TechVibe Store</span>
+        </div>
+        <p class="footer-copy">© 2026 TechVibe Inc. Versión Vanilla JS de referencia (Intocable).</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/producto.js"></script>
+</body>
+</html>

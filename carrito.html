@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Carrito de Compras - TechVibe</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="store-container">
+    <header class="navbar">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <a href="index.html" class="logo-text">TechVibe</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Catálogo</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="carrito.html" class="btn-cart">
+          🛒 Carrito <span id="cart-counter" class="cart-badge">0</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="cart-view-container">
+      <h1 style="font-size: 2rem; margin-bottom: 24px;">Tu Carrito Tech</h1>
+
+      <div id="cart-empty" class="state-feedback">
+        <p>Tu carrito está vacío actualmente.</p>
+        <a href="index.html" class="btn-primary" style="display: inline-block; margin-top: 16px;">Ver Catálogo</a>
+      </div>
+
+      <div id="cart-content" style="display: none;">
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio Unitario</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items-body"></tbody>
+        </table>
+
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+          <button id="btn-empty-cart" class="btn-secondary" style="color: #f87171; border-color: rgba(248,113,113,0.3);">
+            Vaciar Carrito
+          </button>
+
+          <div class="cart-order-summary">
+            <h2 style="font-size: 1.15rem;">Resumen del Pedido</h2>
+            <div class="summary-row">
+              <span style="color: var(--text-muted);">Subtotal:</span>
+              <span id="summary-subtotal">$0</span>
+            </div>
+            <div class="summary-row">
+              <span style="color: var(--text-muted);">Envío:</span>
+              <span id="summary-shipping" style="color: #34d399;">Gratis</span>
+            </div>
+            <div class="summary-row summary-total">
+              <span>Total Final:</span>
+              <span id="summary-total">$0</span>
+            </div>
+            <button type="button" class="btn-primary" onclick="alert('¡Compra simulada con éxito!');" style="margin-top: 8px;">
+              Iniciar Pago Seguro
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">⚡</span>
+          <span class="footer-logo-text">TechVibe Store</span>
+        </div>
+        <p class="footer-copy">© 2026 TechVibe Inc. Versión Vanilla JS de referencia (Intocable).</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/carrito.js"></script>
+</body>
+</html>

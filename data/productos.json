@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "name": "VibePods Studio Pro",
+    "category": "Audio Hi-Fi",
+    "tag": "Bestseller",
+    "price": 89990,
+    "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600&auto=format&fit=crop&q=80",
+    "description": "Auriculares inalámbricos over-ear con cancelación activa de ruido adaptativa, transductores de 40mm y hasta 40 horas de reproducción ininterrumpida.",
+    "rating": 4.9,
+    "stock": 12,
+    "specs": {
+      "conectividad": "Bluetooth 5.3 y Jack 3.5mm",
+      "bateria": "40 horas con ANC activo",
+      "peso": "250g",
+      "garantia": "12 meses oficial"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Pulse Watch Ultra",
+    "category": "Wearables",
+    "tag": "Nuevo",
+    "price": 115400,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80",
+    "description": "Smartwatch resistente con caja de titanio de grado aeroespacial, GPS de doble frecuencia, sensor SpO2 y sumergible hasta 50 metros.",
+    "rating": 4.8,
+    "stock": 8,
+    "specs": {
+      "conectividad": "Bluetooth 5.2 / Wi-Fi / GPS",
+      "bateria": "Hasta 7 días de uso continuo",
+      "peso": "61g",
+      "garantia": "24 meses oficial"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Mechanical Glow 75%",
+    "category": "Accesorios",
+    "tag": "Oferta",
+    "price": 64200,
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop&q=80",
+    "description": "Teclado mecánico compacto con interruptores táctiles prelubricados intercambiables en caliente (hot-swap), retroiluminación RGB por tecla y perilla multimedia.",
+    "rating": 4.7,
+    "stock": 15,
+    "specs": {
+      "conectividad": "Triple conexión: 2.4GHz, BT y USB-C",
+      "bateria": "4000 mAh (hasta 200h sin RGB)",
+      "peso": "820g",
+      "garantia": "12 meses oficial"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Aura StreamCam 4K",
+    "category": "Streaming",
+    "tag": "Top Rated",
+    "price": 78500,
+    "image": "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=600&auto=format&fit=crop&q=80",
+    "description": "Cámara web para streaming profesional con sensor Sony STARVIS 4K a 60 FPS, enfoque automático ultra veloz impulsado por IA y anillo de luz integrado.",
+    "rating": 4.9,
+    "stock": 10,
+    "specs": {
+      "conectividad": "USB-C 3.1 Plug and Play",
+      "resolucion": "4K Ultra HD (3840x2160) a 60fps",
+      "peso": "180g",
+      "garantia": "12 meses oficial"
+    }
+  },
+  {
+    "id": 5,
+    "name": "ErgoFlow Precision Mouse",
+    "category": "Ergonomía",
+    "tag": "Bestseller",
+    "price": 52300,
+    "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&auto=format&fit=crop&q=80",
+    "description": "Ratón ergonómico vertical diseñado para reducir la fatiga muscular de la muñeca en un 35%. Sensor óptico de 8000 DPI y clicks ultrasilenciosos.",
+    "rating": 4.6,
+    "stock": 20,
+    "specs": {
+      "conectividad": "Bluetooth y Receptor USB Unifying",
+      "bateria": "Batería recargable (70 días por carga)",
+      "peso": "135g",
+      "garantia": "12 meses oficial"
+    }
+  },
+  {
+    "id": 6,
+    "name": "VoltStation 3-en-1 Qi2",
+    "category": "Accesorios",
+    "tag": "Nuevo",
+    "price": 49900,
+    "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&auto=format&fit=crop&q=80",
+    "description": "Base de carga inalámbrica rápida magnética para recargar simultáneamente smartphone, smartwatch y auriculares con tecnología de refrigeración activa.",
+    "rating": 4.8,
+    "stock": 14,
+    "specs": {
+      "conectividad": "USB-C Power Delivery 65W",
+      "potencia": "Hasta 15W Qi2 inalámbrico",
+      "peso": "290g",
+      "garantia": "12 meses oficial"
+    }
+  },
+  {
+    "id": 7,
+    "name": "HyperSound Soundbar Mini",
+    "category": "Audio Hi-Fi",
+    "tag": "Oferta",
+    "price": 68000,
+    "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80",
+    "description": "Barra de sonido compacta para escritorio con subwoofer pasivo dual, audio espacial Dolby y múltiples perfiles acústicos ecualizados.",
+    "rating": 4.7,
+    "stock": 6,
+    "specs": {
+      "conectividad": "Bluetooth 5.1, Óptico y AUX 3.5mm",
+      "potencia": "40W RMS",
+      "peso": "950g",
+      "garantia": "12 meses oficial"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Lumina RGB Lightbar",
+    "category": "Ergonomía",
+    "tag": "Top Rated",
+    "price": 43500,
+    "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=600&auto=format&fit=crop&q=80",
+    "description": "Lámpara de monitor asimétrica antibrillos con control táctil inalámbrico, ajuste de temperatura de color y retroiluminación ambiental RGB.",
+    "rating": 4.9,
+    "stock": 18,
+    "specs": {
+      "conectividad": "USB-A a USB-C (5V 2A)",
+      "temperatura": "2700K - 6500K regulable",
+      "peso": "420g",
+      "garantia": "12 meses oficial"
+    }
+  }
+]

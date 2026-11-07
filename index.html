@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechVibe - Gadgets & Tech Store</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="store-container">
+    <header class="navbar">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <a href="index.html" class="logo-text">TechVibe</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Catálogo</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="carrito.html" class="btn-cart">
+          🛒 Carrito <span id="cart-counter" class="cart-badge">0</span>
+        </a>
+      </div>
+    </header>
+
+    <section class="hero-section">
+      <div class="hero-content">
+        <span class="badge">Novedades 2026</span>
+        <h1 class="hero-title">Tecnología inteligente para tu día a día</h1>
+        <p class="hero-subtitle">
+          Descubrí los accesorios más innovadores con envío gratis superando los $100.000.
+          <br>
+          Diseño premium, máximo rendimiento y garantía oficial.
+        </p>
+        <div class="hero-buttons">
+          <a href="#catalogo" class="btn-primary">Explorar Colección</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700&auto=format&fit=crop&q=80" alt="Auriculares Tech Pro inalámbricos" class="hero-img">
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="catalogo" class="catalog-section">
+      <div class="section-header">
+        <h2 class="section-title">Productos Destacados</h2>
+        <p class="section-description">Selección exclusiva de los gadgets más elegidos por nuestra comunidad tech.</p>
+      </div>
+
+      <div id="loading" class="state-feedback">Cargando productos de la tienda...</div>
+      <div id="error" class="state-feedback state-error-msg" style="display: none;"></div>
+      <div id="products-grid" class="products-grid" style="display: none;"></div>
+    </section>
+
+    <section id="contacto" class="newsletter-section">
+      <div class="newsletter-box">
+        <h2 class="newsletter-title">Unite a la Comunidad TechVibe</h2>
+        <p class="newsletter-subtitle">Recibí novedades y descuentos exclusivos directamente en tu bandeja de entrada.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+          <div class="form-group">
+            <input type="email" class="form-input" placeholder="tu-email@dominio.com" required>
+          </div>
+          <button type="submit" class="btn-submit">Suscribirme</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <hr class="footer-divider">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">⚡</span>
+          <span class="footer-logo-text">TechVibe Store</span>
+        </div>
+        <p class="footer-copy">
+          © 2026 TechVibe Inc. Versión Vanilla JS de referencia (Intocable) - Programación II.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
