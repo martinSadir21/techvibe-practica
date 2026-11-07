@@ -1,5 +1,9 @@
 import { useProducts } from "../hooks/useProducts.js";
 import { ProductCard } from "../components/ProductCard.jsx";
+import { Loader } from "../components/Loader.jsx";
+import { ErrorMessage } from "../components/ErrorMessage.jsx";
+import { HeroSection } from "../components/HeroSection.jsx";
+import { NewsletterSection } from "../components/NewsletterSection.jsx";
 
 // Página principal: catálogo de productos.
 // Inspírate en la estructura de `index.html` y la lógica de `js/app.js` (versión vanilla).
@@ -13,6 +17,8 @@ export function HomePage() {
   //   utilizando el componente `ProductCard`.
 
   return (
+    <> 
+    <HeroSection/>
     <section className="catalog-section">
       <div className="section-header">
         <h2 className="section-title">Productos Destacados</h2>
@@ -20,11 +26,24 @@ export function HomePage() {
           Reimplementación en React de la tienda TechVibe.
         </p>
       </div>
+      {loading && <Loader text= "Cargando productos de la tienda"/>}
+      {error && (<ErrorMessage message= "No se pudieron cargar los productos: ${error.message}"/>)}
 
-      {/* TODO:
-          - Mostrar estado de carga, error o mapear `products` con <ProductCard />.
-      */}
-      <div className="products-grid"></div>
-    </section>
+      {!loading && !error && products.length === 0 && (
+        <div>
+          No hay productos disponibles
+        </div> )}
+
+      {!loading && !error && products.lenght > 0 && (
+        <div>
+          {products.map((product) => (
+              <ProductCard key= {product.id} product={product} />
+            ))
+          },
+          </div>      
+      )}
+</section>
+    <NewsletterSection/>
+</>
   );
 }

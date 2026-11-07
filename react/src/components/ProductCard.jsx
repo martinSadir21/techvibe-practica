@@ -17,12 +17,21 @@ export function ProductCard({ product }) {
   //
   // Pista:
   //  - Inspírate en `js/app.js` (función `loadCatalog`) para usar las mismas clases CSS.
-
   return (
     <article className="product-card">
-      {/* TODO:
-          - Reemplazar este comentario por el JSX definitivo de la tarjeta.
-      */}
+      <div className="card-media">
+          <span className="product-tag">{product.tag}</span>
+          <img src={product.image} alt={product.name} className="card-img"/>
+        </div>
+        <div className="card-body">
+          <span className="card-category">{product.category}</span>
+          <h3 className="card-title">{product.name}</h3>
+          <p className="card-description">{product.description}</p>
+          <div className="card-footer">
+            <span className="price">{product.price.toLocaleString('es-AR')}</span>
+            <Link to={`/productos/${product.id}`} className="btn-add">Ver Detalle</Link>
+          </div>
+        </div>
     </article>
   );
 }

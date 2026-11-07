@@ -16,6 +16,7 @@ function updateCartBadge() {
   if (badge) badge.textContent = totalCount;
 }
 
+// hook
 async function loadCatalog() {
   const loadingEl = document.getElementById('loading');
   const errorEl = document.getElementById('error');
