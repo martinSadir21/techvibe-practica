@@ -15,3 +15,18 @@ export const API_BASE_URL = "http://localhost:3000/api";
 // - Realizar la petición con `fetch` y devolver los datos parseados.
 // - Manejar errores de red y respuestas no-OK de forma apropiada.
 
+export async function apiFetch(path, options = {}) {
+    const {method = "GET", body} = options;
+    const response = await fetch(`${API_BASE_URL}${path}`, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: body ? JSON.stringify(body) : undefined,
+    });
+    if(!response.ok){
+        const data = await response.json().catch(()=>({}));
+        const error = new Error(data.error || data.message || `Error ${response.status}`);
+        error.status = response.status;
+        throw error;
+    }
+    return response.json();
+}
