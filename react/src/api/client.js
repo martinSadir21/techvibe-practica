@@ -14,3 +14,4 @@ export const API_BASE_URL = "http://localhost:3000/api";
 // - Componer la URL completa usando `API_BASE_URL`.
 // - Realizar la petición con `fetch` y devolver los datos parseados.
 // - Manejar errores de red y respuestas no-OK de forma apropiada.
+
