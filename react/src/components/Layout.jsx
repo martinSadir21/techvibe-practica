@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useCart } from "../hooks/useCart.js";
 
 // Layout principal de la app.
 // Incluye cabecera, navegación básica y pie de página.
@@ -15,6 +16,11 @@ export function Layout({ children }) {
   // - Consumir el contexto del carrito (`useCart`) para obtener y mostrar
   //   la cantidad total de unidades en el badge de la barra de navegación.
 
+  // para el badge/contador
+  const { cart } = useCart();
+  const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const claseLink = ({ isActive }) => (isActive ? "nav-link active" : "nav-link");
+
   return (
     <div className="store-container">
       <header className="navbar">
@@ -23,10 +29,16 @@ export function Layout({ children }) {
           <span className="logo-text">TechVibe</span>
         </div>
         <nav className="nav-links">
-          {/* TODO: Agregar enlaces de navegación con <Link> */}
+          <NavLink to="/" end className={claseLink}>Catálogo</NavLink>
+          <a href="#contacto" className="nav-link">Contacto</a>
         </nav>
         <div className="nav-actions">
-          {/* TODO: Agregar enlace a "/carrito" mostrando el badge con la cantidad total */}
+          <NavLink
+              to="/carrito"
+              className="btn-cart"
+            >
+              🛒 Carrito <span className="cart-badge">{totalCount}</span>
+            </NavLink>
         </div>
       </header>
 
