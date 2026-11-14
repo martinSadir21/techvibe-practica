@@ -12,10 +12,6 @@ import { useCart } from "../hooks/useCart.js";
 export function Layout({ children }) {
   const currentYear = new Date().getFullYear();
 
-  // TODO:
-  // - Consumir el contexto del carrito (`useCart`) para obtener y mostrar
-  //   la cantidad total de unidades en el badge de la barra de navegación.
-
   // para el badge/contador
   const { cart } = useCart();
   const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
