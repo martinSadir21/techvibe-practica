@@ -1,5 +1,8 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+
+import { Link, useParams } from "react-router-dom";
+import { useProductDetail } from "../hooks/useProductDetail.js";
+import { useCart } from "../hooks/useCart.js";
+import { formatPrice } from "../api/client.js";
 
 // Página de detalle de un producto.
 //
@@ -16,57 +19,46 @@ import { useState, useEffect } from "react";
 
 export function ProductDetailPage() {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    // TODO:
-    // - Obtener el producto por `id` desde `/api/productos/${id}`.
-    // - Actualizar `product`, `loading` y `error` según corresponda.
-    console.warn(
-      "TODO: implementar carga de detalle de producto en ProductDetailPage",
-    );
-  }, [id]);
+  const { product, loading, error } = useProductDetail(id);
+  const { cart, addToCart, removeFromCart } = useCart();
 
   return (
     <section className="detail-view-container">
-      <h1>Detalle de producto (React)</h1>
-      <p>
-        Página de detalle para el producto con id: <strong>{id}</strong>
-      </p>
+      <Link to="/" className="btn-secondary">&larr; Volver</Link>
 
-      {/* TODO:
-          - Sustituir este bloque por la vista completa que muestre:
-            * Imagen, tag, categoría, nombre, precio, rating, descripción y stock.
-            * Lista de especificaciones técnicas (`product.specs`).
-            * Botón para agregar al carrito usando `useCart()`.
-          - Manejar visualmente los casos de `loading`, `error` y `product === null`.
-      */}
+      {loading && <div className="state-feedback">Cargando detalles del gadget...</div>}
 
-      <pre
-        style={{
-          marginTop: "1.5rem",
-          padding: "1rem",
-          background: "rgba(0,0,0,0.4)",
-        }}
-      >
-        <code>
-          {`// Ejemplo de estructura de datos esperada:
-// {
-//   "id": 1,
-//   "name": "VibePods Studio Pro",
-//   "category": "Audio Hi-Fi",
-//   "tag": "Bestseller",
-//   "price": 89990,
-//   "image": "...",
-//   "description": "...",
-//   "rating": 4.9,
-//   "stock": 12,
-//   "specs": { "conectividad": "...", "bateria": "...", "peso": "...", "garantia": "..." }
-// }`}
-        </code>
-      </pre>
+      {error && <div className="state-feedback state-error-msg">Error: {error.message}</div>}
+
+      {!loading && !error && product && (
+        <article className="detail-layout">
+          <img src={product.image} alt={product.name} />
+          <span className={`badge badge-${product.badgeVariant || "primary"}`}>{product.category}</span>
+          <h1>{product.name}</h1>
+          <p>{product.description}</p>
+          <span>{formatPrice(product.price)}</span>
+
+          <div>
+            <strong>Disponibilidad: </strong><span>{product.stock} unidades en stock</span>
+          </div>
+
+          <div>
+            <h3>Especificaciones Técnicas:</h3>
+            <ul className="specs-list">
+                {Object.entries(product.specs || {}).map(([key, val]) => (
+                  <li key={key}>
+                    <strong>{key.toUpperCase()}:</strong> <span>{val}</span>
+                  </li>
+                ))}
+              </ul>
+          </div>
+
+          <button className="btn-primary" onClick={() => addToCart(product)}>
+            Agregar al Carrito
+          </button>
+
+        </article>
+      )}
     </section>
   );
 }
