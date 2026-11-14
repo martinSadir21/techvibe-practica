@@ -1,12 +1,12 @@
+// =============================================================================
+// PASO 3 · hooks/useProducts.js — trae TODOS los productos
+// -----------------------------------------------------------------------------
+// Las 3 preguntas → "¿de dónde vienen los datos?" → el fetch de app.js → este hook.
+// ⚠️ El esqueleto traía loading en false → va en TRUE (la página arranca cargando).
+// [] al final del useEffect = se ejecuta UNA vez, al entrar a la página.
+// =============================================================================
 import { useEffect, useState } from "react";
 import { apiFetch } from "../api/client.js";
-
-// Custom hook para cargar los productos desde la API.
-//
-// MUY IMPORTANTE:
-// - Aquí solo se define la estructura básica del hook.
-// - La lógica real de llamada a la API, manejo de errores y estados
-//   debe ser implementada por el alumno.
 
 export function useProducts() {
   const [products, setProducts] = useState([]);
@@ -21,18 +21,13 @@ export function useProducts() {
       } catch (err) {
         setError(err);
       } finally {
-        setLoading(false);
+        setLoading(false); // termina bien o mal → deja de cargar
       }
     };
     getData();
   }, []);
 
-  return {
-    products,
-    loading,
-    error,
-    setProducts,
-    setLoading,
-    setError,
-  };
+  return { products, loading, error, setProducts, setLoading, setError };
 }
+
+// ➡️ SIGUIENTE: components/ProductCard.jsx

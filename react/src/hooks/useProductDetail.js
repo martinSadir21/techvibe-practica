@@ -1,12 +1,14 @@
+// =============================================================================
+// PASO 5 · hooks/useProductDetail.js — trae UN producto por id (archivo NUEVO)
+// -----------------------------------------------------------------------------
+// Es useProducts con 4 cambios:
+//   1) recibe `id`   2) useState(null) (es UNO, no una lista)
+//   3) ruta con id   4) dependencias [id] (si cambia el id, vuelve a buscar)
+// La rúbrica no lo nombra, pero pide "lógica asíncrona en hooks": cada fetch → un hook.
+// Si el id no existe, la API devuelve 404 → apiFetch tira error → cae en el catch.
+// =============================================================================
 import { useEffect, useState } from "react";
 import { apiFetch } from "../api/client.js";
-
-// Custom hook para cargar los productos desde la API.
-//
-// MUY IMPORTANTE:
-// - Aquí solo se define la estructura básica del hook.
-// - La lógica real de llamada a la API, manejo de errores y estados
-//   debe ser implementada por el alumno.
 
 export function useProductDetail(id) {
   const [product, setProduct] = useState(null);
@@ -15,7 +17,7 @@ export function useProductDetail(id) {
 
   useEffect(() => {
     const getData = async () => {
-        setLoading(true);
+      setLoading(true);
       setError(null);
       try {
         const data = await apiFetch(`/productos/${id}`);
@@ -29,9 +31,7 @@ export function useProductDetail(id) {
     getData();
   }, [id]);
 
-  return {
-    product,
-    loading,
-    error,
-  };
+  return { product, loading, error };
 }
+
+// ➡️ SIGUIENTE: components/SpecsList.jsx (la lista dentro del detalle)
