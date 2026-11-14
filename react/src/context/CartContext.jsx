@@ -13,36 +13,86 @@ import { createContext, useState, useEffect } from "react";
 //
 // Pista:
 // - Inspírate en `js/producto.js` y `js/carrito.js` de la versión vanilla.
+const STORAGE_KEY = "techvibe_cart";
+const FREE_SHIPPING_THRESHOLD = 100000;
+const SHIPPING_COST = 4500;
 
 export const CartContext = createContext(null);
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
-
+  const [cart, setCart] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  });
   useEffect(() => {
-    // TODO:
-    // - Leer y/o sincronizar el carrito con localStorage.
-  }, []);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (product) => {
-    // TODO:
-    // - Implementar lógica para agregar producto o incrementar cantidad sin superar el stock.
-    console.warn("TODO: implementar addToCart en CartContext");
+    const existe = cart.find((i) => i.id === product.id);
+    if (existe) {
+      setCart(
+        cart.map((i) =>
+          i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i,
+        ),
+      );
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
   };
 
-  const removeFromCart = (productId) => {
-    // TODO:
-    // - Implementar lógica para eliminar un producto del carrito.
-    console.warn("TODO: implementar removeFromCart en CartContext");
+  // sumar y restar del carrito
+  const increaseQuantity = (id) => {
+    const item = cart.find((i) => i.id === id);
+    if (item.quantity >= item.stock) {
+      alert(`Stock máximo disponible alcanzado (${item.stock} unidades).`);
+      return;
+    }
+    setCart(
+      cart.map((i) => (i.id === id ? { ...i, quantity: i.quantity + 1 } : i)),
+    );
   };
 
-  const clearCart = () => {
-    // TODO:
-    // - Implementar lógica para vaciar el carrito.
-    console.warn("TODO: implementar clearCart en CartContext");
+  const decreaseQuantity = (id) => {
+    const item = cart.find((i) => i.id === id);
+    if (item.quantity <= 1) {
+      removeFromCart(id); // si queda en 0, se saca
+      return;
+    }
+    setCart(
+      cart.map((i) => (i.id === id ? { ...i, quantity: i.quantity - 1 } : i)),
+    );
   };
 
-  const value = { cart, addToCart, removeFromCart, clearCart };
+  const removeFromCart = (productId) =>
+    setCart(cart.filter((i) => i.id !== productId));
+
+  const clearCart = () => setCart([]);
+
+  // ya esta escrito en carrito.js
+  const subtotal = cart.reduce((acc, i) => acc + i.price * i.quantity, 0);
+  const shipping =
+    cart.length === 0
+      ? 0
+      : subtotal >= FREE_SHIPPING_THRESHOLD
+        ? 0
+        : SHIPPING_COST;
+  const total = subtotal + shipping;
+
+  const value = {
+    cart,
+    addToCart,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+    clearCart,
+    subtotal,
+    shipping,
+    total,
+  };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

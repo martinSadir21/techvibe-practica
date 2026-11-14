@@ -29,12 +29,12 @@ export function Layout({ children }) {
           <a href="#contacto" className="nav-link">Contacto</a>
         </nav>
         <div className="nav-actions">
-          <NavLink
+          <Link
               to="/carrito"
               className="btn-cart"
             >
               🛒 Carrito <span className="cart-badge">{totalCount}</span>
-            </NavLink>
+            </Link>
         </div>
       </header>
 
